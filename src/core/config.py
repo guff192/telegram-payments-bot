@@ -19,4 +19,6 @@ class AppSettings(BaseSettings):
 
 
 settings = AppSettings(_env_file='.env', _env_file_encoding='utf-8')
+if settings.DEBUG:
+    logger.debug(settings.dict())
 
