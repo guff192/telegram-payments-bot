@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "telegram-bot-payments"
+version = "0.1.0"
+description = ""
+authors = ["guff192 <kochkons1@ya.ru>"]
+readme = "README.md"
+packages = [{include = "telegram_bot_payments"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.81.0"
+uvicorn = "^0.18.3"
+aiogram = "^2.22.1"
+python-dotenv = "^0.21.0"
+loguru = "^0.6.0"
+mangum = "^0.15.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pyright]
+include = ["app"]
+exclude = [
+    "**/__pycache__",
+]
+defineConstant = { DEBUG = true }
+venv = ".venv"
+
+reportMissingTypeStubs = false
+
+pythonVersion = "3.10"
+
+executionEnvironments = [
+  { root = "app" }
+]
