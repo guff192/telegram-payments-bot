@@ -13,7 +13,7 @@ def register_chat_handlers(dp: Dispatcher):
     dp.register_chat_join_request_handler(handle_join_request)
 
 
-async def handle_join_request(chat_join_request: types.ChatJoinRequest, state: FSMContext):
+async def handle_join_request(chat_join_request: types.ChatJoinRequest):
     logger.debug('got join request')
 
     chat_id = chat_join_request.chat.id
@@ -23,7 +23,6 @@ async def handle_join_request(chat_join_request: types.ChatJoinRequest, state: F
     dp = Dispatcher.get_current()
     personal_chat_state = dp.current_state(chat=user_id, user=user_id)
     data = await personal_chat_state.get_data()
-    logger.debug(data)
 
     paid_courses: List[str] = data.get('paid_courses', [])
     if not paid_courses or course_name not in paid_courses:
