@@ -24,6 +24,6 @@ ngrok http 5000
 5. Run the src module:
 
 ```bash
-python3 -m
+python3 -m src
 ```
 
