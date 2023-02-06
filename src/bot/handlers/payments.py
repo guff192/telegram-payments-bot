@@ -41,7 +41,7 @@ async def process_payment(message: types.Message, state: FSMContext):
     course_chat_id = await get_course_chat_id(course_name)
 
     invite_link = await message.bot.create_chat_invite_link(
-            course_chat_id,
+            chat_id=course_chat_id,
             creates_join_request=True,
             )
 
